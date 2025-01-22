@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "limitlessenchantments",
+	"version": "${version}",
+	"name": "Limitless Enchantments",
+	"description": "Remove the enchanted book level limits in survival",
+	"authors": [
+		"Thomas Darkson"
+	],
+	"contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/limitlessenchantments",
+		"sources": "https://github.com/ThomasDarkson/limitlessenchantments"
+	},
+	"license": "Apache",
+	"icon": "assets/limitlessenchantments/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"limitless.enchantments.LimitlessEnchantments"
+		]
+	},
+	"mixins": [
+		"limitlessenchantments.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

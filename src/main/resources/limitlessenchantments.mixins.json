@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "limitless.enchantments.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"EnchantmentMixin",
+		"ServerWorldMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
