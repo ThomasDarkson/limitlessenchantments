@@ -1,3 +1,6 @@
 {
-    "gamerule.maxEnchantmentLevel": "The maximum enchantment level allowed. 0 disables the mod entirely"
+    "gamerule.maxEnchantmentLevel": "Maximum Enchantment Level",
+    "gamerule.maxEnchantmentLevel.description": "The maximum enchantment level allowed. 0 disables the mod entirely",
+    "gamerule.noIncompatibilities": "No Incompatibilities",
+    "gamerule.noIncompatibilities.description": "Allows you to combine mutually exclusive enchantments like Infinity and Mending together"
 }

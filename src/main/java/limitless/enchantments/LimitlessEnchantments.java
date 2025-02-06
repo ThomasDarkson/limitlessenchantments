@@ -14,9 +14,14 @@ public class LimitlessEnchantments implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static final GameRules.Key<GameRules.IntRule> MAX_ENCHANTMENT_LEVEL =
-	GameRuleRegistry.register("maxEnchantmentLevel", Category.MISC, GameRuleFactory.createIntRule(255, 0, 255));
+	GameRuleRegistry.register("maxEnchantmentLevel", Category.MISC, GameRuleFactory.createIntRule(10, 0, 255));
+
+
+    public static final GameRules.Key<GameRules.BooleanRule> NO_INCOMPATIBILITIES =
+	GameRuleRegistry.register("noIncompatibilities", Category.MISC, GameRuleFactory.createBooleanRule(true));
 
 	public static int MAX_ENCHANTMENT_LEVEL_INT = 255;
+    public static boolean NO_INCOMPATIBILITIES_BOOLEAN = false;
 
 	@Override
 	public void onInitialize() {

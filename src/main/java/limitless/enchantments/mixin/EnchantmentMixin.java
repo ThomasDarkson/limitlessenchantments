@@ -44,4 +44,11 @@ public class EnchantmentMixin{
 			info.setReturnValue(mutableText);
 		}
    	}
+
+	@Inject(at = @At("HEAD"), method = "canBeCombined", cancellable = true)
+	private static void canBeCombined(RegistryEntry<Enchantment> first, RegistryEntry<Enchantment> second, CallbackInfoReturnable<Boolean> info) {
+		if (LimitlessEnchantments.NO_INCOMPATIBILITIES_BOOLEAN) {
+			info.setReturnValue(!first.equals(second));
+		}
+	}
 }

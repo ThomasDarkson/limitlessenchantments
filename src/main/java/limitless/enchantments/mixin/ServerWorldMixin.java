@@ -20,7 +20,9 @@ public class ServerWorldMixin {
         TickManager tickManager = world.getTickManager();
         boolean bl = tickManager.shouldTick();
 
-        if (bl) 
+        if (bl) {
             LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL_INT = world.getGameRules().getInt(LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL);
+            LimitlessEnchantments.NO_INCOMPATIBILITIES_BOOLEAN = world.getGameRules().getBoolean(LimitlessEnchantments.NO_INCOMPATIBILITIES);
+        }
     }
 }

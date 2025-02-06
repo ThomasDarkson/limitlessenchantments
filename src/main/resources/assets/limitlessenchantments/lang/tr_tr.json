@@ -1,3 +1,4 @@
 {
-    "gamerule.maxEnchantmentLevel": "İzin verilen en yüksek büyülü kitap seviyesi. 0 modu tamamen devre dışı bırakır"
+    "gamerule.maxEnchantmentLevel": "İzin verilen en yüksek büyülü kitap seviyesi. 0 modu tamamen devre dışı bırakır",
+    "gamerule.noIncompatibilities": "Sonsuzluk ve Onarım gibi uyumsuz olan büyülü kitapları birleştirmene izin verir"
 }
