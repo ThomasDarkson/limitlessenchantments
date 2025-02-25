@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"EnchantmentMixin",
-		"ServerWorldMixin"
+		"ServerWorldMixin",
+		"EnchantmentFactoryMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

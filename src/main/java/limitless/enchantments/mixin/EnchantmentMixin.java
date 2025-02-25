@@ -1,6 +1,7 @@
 package limitless.enchantments.mixin;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.EnchantmentTags;
 import net.minecraft.screen.ScreenTexts;
@@ -48,7 +49,16 @@ public class EnchantmentMixin{
 	@Inject(at = @At("HEAD"), method = "canBeCombined", cancellable = true)
 	private static void canBeCombined(RegistryEntry<Enchantment> first, RegistryEntry<Enchantment> second, CallbackInfoReturnable<Boolean> info) {
 		if (LimitlessEnchantments.NO_INCOMPATIBILITIES_BOOLEAN) {
-			info.setReturnValue(!first.equals(second));
+			boolean isFortuneAndSilkTouch = false; try { 
+				var firstKey = first.getKey().get();
+				var secondKey = second.getKey().get();
+
+				isFortuneAndSilkTouch = (firstKey.equals(Enchantments.FORTUNE) && secondKey.equals(Enchantments.SILK_TOUCH)) || (firstKey.equals(Enchantments.SILK_TOUCH) && secondKey.equals(Enchantments.FORTUNE));
+			} catch(Exception e) { 
+				isFortuneAndSilkTouch = true;
+			}
+
+			info.setReturnValue(!first.equals(second) && !isFortuneAndSilkTouch);
 		}
 	}
 }

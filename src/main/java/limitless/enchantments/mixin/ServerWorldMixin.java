@@ -23,6 +23,7 @@ public class ServerWorldMixin {
         if (bl) {
             LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL_INT = world.getGameRules().getInt(LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL);
             LimitlessEnchantments.NO_INCOMPATIBILITIES_BOOLEAN = world.getGameRules().getBoolean(LimitlessEnchantments.NO_INCOMPATIBILITIES);
+            LimitlessEnchantments.REBALANCED_TRADES_BOOLEAN = world.getGameRules().getBoolean(LimitlessEnchantments.REBALANCED_TRADES);
         }
     }
 }
