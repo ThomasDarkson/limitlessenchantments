@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import limitless.enchantments.LimitlessEnchantments;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.tick.TickManager;
 
 @Mixin(ServerWorld.class)
 public class ServerWorldMixin {
@@ -17,13 +16,9 @@ public class ServerWorldMixin {
     public void tick(BooleanSupplier shouldKeepTicking, CallbackInfo info) {
         @SuppressWarnings("resource")
         ServerWorld world = (ServerWorld) (Object) this;
-        TickManager tickManager = world.getTickManager();
-        boolean bl = tickManager.shouldTick();
 
-        if (bl) {
-            LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL_INT = world.getGameRules().getInt(LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL);
-            LimitlessEnchantments.NO_INCOMPATIBILITIES_BOOLEAN = world.getGameRules().getBoolean(LimitlessEnchantments.NO_INCOMPATIBILITIES);
-            LimitlessEnchantments.REBALANCED_TRADES_BOOLEAN = world.getGameRules().getBoolean(LimitlessEnchantments.REBALANCED_TRADES);
-        }
+        LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL_INT = world.getGameRules().getInt(LimitlessEnchantments.MAX_ENCHANTMENT_LEVEL);
+        LimitlessEnchantments.NO_INCOMPATIBILITIES_BOOLEAN = world.getGameRules().getBoolean(LimitlessEnchantments.NO_INCOMPATIBILITIES);
+        LimitlessEnchantments.REBALANCED_TRADES_BOOLEAN = world.getGameRules().getBoolean(LimitlessEnchantments.REBALANCED_TRADES);
     }
 }
