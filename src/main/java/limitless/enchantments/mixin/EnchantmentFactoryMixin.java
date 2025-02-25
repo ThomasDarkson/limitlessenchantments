@@ -11,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import limitless.enchantments.LimitlessEnchantments;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
@@ -36,7 +36,7 @@ public class EnchantmentFactoryMixin {
     @Inject(at = @At("HEAD"), method = "create", cancellable = true)
     public void create(Entity entity, Random random, CallbackInfoReturnable<TradeOffer> info) {
         if (LimitlessEnchantments.REBALANCED_TRADES_BOOLEAN) {
-            Optional<RegistryEntry<Enchantment>> optional = entity.getWorld().getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT).getRandomEntry(this.possibleEnchantments, random);
+            Optional<RegistryEntry<Enchantment>> optional = entity.getWorld().getRegistryManager().get(RegistryKeys.ENCHANTMENT).getRandomEntry(this.possibleEnchantments, random);
             int l;
             ItemStack itemStack;
 
@@ -47,7 +47,7 @@ public class EnchantmentFactoryMixin {
                 int j = Math.min(enchantment.getMaxLevel(), this.maxLevel);
                 int k = MathHelper.nextInt(random, i, j);
 
-                itemStack = EnchantmentHelper.getEnchantedBookWith(new EnchantmentLevelEntry(registryEntry, k));
+                itemStack = EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(registryEntry, k));
 
                 int baseCost = 5 + random.nextInt(5);
                 int scalingCost = (int) (Math.log(k + 1) * 10);
