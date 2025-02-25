@@ -2,8 +2,6 @@ package limitless.enchantments.mixin;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.EnchantmentTags;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
@@ -29,16 +27,17 @@ public class EnchantmentMixin{
 	}
 
 	@Inject(at = @At("HEAD"), method = "getName", cancellable = true)
-	private static void getName(RegistryEntry<Enchantment> enchantment, int level, CallbackInfoReturnable<Text> info) {
+	public void getName(int level, CallbackInfoReturnable<Text> info) {
 		if (level > 5) {
-			MutableText mutableText = ((Enchantment)enchantment.value()).description().copy();
-			if (enchantment.isIn(EnchantmentTags.CURSE)) {
+			Enchantment e = (Enchantment) (Object) this;
+			MutableText mutableText = Text.translatable(e.getTranslationKey());
+			if (e.isCursed()) {
 				Texts.setStyleIfAbsent(mutableText, Style.EMPTY.withColor(Formatting.RED));
 			} else {
 				Texts.setStyleIfAbsent(mutableText, Style.EMPTY.withColor(Formatting.GRAY));
 			}
 
-			if (level != 1 || ((Enchantment)enchantment.value()).getMaxLevel() != 1) {
+			if (level != 1 || e.getMaxLevel() != 1) {
 				mutableText.append(ScreenTexts.SPACE).append(LimitlessEnchantments.convertToRoman(level) + " (" + level + ")");
 			}
 
@@ -46,19 +45,15 @@ public class EnchantmentMixin{
 		}
    	}
 
-	@Inject(at = @At("HEAD"), method = "canBeCombined", cancellable = true)
-	private static void canBeCombined(RegistryEntry<Enchantment> first, RegistryEntry<Enchantment> second, CallbackInfoReturnable<Boolean> info) {
+    @Inject(at = @At("HEAD"), method = "canCombine", cancellable = true)
+	public void canCombine(Enchantment other, CallbackInfoReturnable<Boolean> info) {
 		if (LimitlessEnchantments.NO_INCOMPATIBILITIES_BOOLEAN) {
-			boolean isFortuneAndSilkTouch = false; try { 
-				var firstKey = first.getKey().get();
-				var secondKey = second.getKey().get();
-
-				isFortuneAndSilkTouch = (firstKey.equals(Enchantments.FORTUNE) && secondKey.equals(Enchantments.SILK_TOUCH)) || (firstKey.equals(Enchantments.SILK_TOUCH) && secondKey.equals(Enchantments.FORTUNE));
-			} catch(Exception e) { 
-				isFortuneAndSilkTouch = true;
-			}
-
-			info.setReturnValue(!first.equals(second) && !isFortuneAndSilkTouch);
+			Enchantment enchantment = (Enchantment) (Object) this;
+			boolean isFortuneAndSilkTouch = enchantment == Enchantments.FORTUNE && other == Enchantments.SILK_TOUCH;
+			if (!isFortuneAndSilkTouch)
+				isFortuneAndSilkTouch = enchantment == Enchantments.SILK_TOUCH && other == Enchantments.FORTUNE;
+				
+			info.setReturnValue(!isFortuneAndSilkTouch && enchantment != other);
 		}
 	}
 }
