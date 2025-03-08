@@ -2,7 +2,7 @@
 
 [<img alt="fabric" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg">](https://fabricmc.net/)
 
-![Yeni Proje (1)](https://github.com/user-attachments/assets/a9b728d7-91ab-447d-a571-6bee10046851)
+![416740905-a9b728d7-91ab-447d-a571-6bee10046851 (2)](https://github.com/user-attachments/assets/9b5432b1-ed7c-4615-8f68-c5eb80b2aaa2)
 
 # Limitless Enchantments
 Limitless Enchantments is a mod that lets you remove the limit of maximum enchantment levels with the `maxEnchantmentLevel` game rule. (There is still the 255 limit)
@@ -25,6 +25,9 @@ Without balances:
 
 With balances:
 ![416743882-804f79b7-b84c-4e5a-a414-6327773d655d (1)](https://github.com/user-attachments/assets/11f3089b-044c-47e3-957b-e6a72fa75eb3)
+
+## Showing Actual Numbers
+With the game rule `showActualNumbers`, you can choose to have actual numbers of the level of an enchantment near the roman numerals.
 
 -----------------------------------------------------------------------------------------
 
