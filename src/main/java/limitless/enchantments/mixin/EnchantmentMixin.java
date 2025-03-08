@@ -39,7 +39,10 @@ public class EnchantmentMixin{
 			}
 
 			if (level != 1 || ((Enchantment)enchantment.value()).getMaxLevel() != 1) {
-				mutableText.append(ScreenTexts.SPACE).append(LimitlessEnchantments.convertToRoman(level) + " (" + level + ")");
+				if (!LimitlessEnchantments.SHOW_ACTUAL_NUMBERS_BOOLEAN)
+					mutableText.append(ScreenTexts.SPACE).append(LimitlessEnchantments.convertToRoman(level));
+				else
+					mutableText.append(ScreenTexts.SPACE).append(LimitlessEnchantments.convertToRoman(level) + " (" + level + ")");
 			}
 
 			info.setReturnValue(mutableText);

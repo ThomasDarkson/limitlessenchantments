@@ -5,5 +5,7 @@
     "gamerule.noIncompatibilities.description": "Allows you to combine mutually exclusive enchantments like Infinity and Mending together. Fortune and Silk Touch is not supported",
     "gamerule.rebalancedTrades": "Rebalanced Trades",
     "gamerule.rebalancedTrades.description": "Rebalances librarian villager trades for higher enchantment levels. Recommended if maxEnchantmentLevel is higher than 10",
+    "gamerule.showActualNumbers": "Show Actual Numbers",
+    "gamerule.showActualNumbers.description": "Shows the actual level of an enchantment near the roman numerals if enabled",
     "category.gamerule.enchantments": "Enchantments"
 }
