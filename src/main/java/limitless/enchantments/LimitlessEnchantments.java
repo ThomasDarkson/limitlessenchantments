@@ -19,7 +19,6 @@ public class LimitlessEnchantments implements ModInitializer {
     public static final CustomGameRuleCategory ENCHANTMENTS_CATEGORY = new CustomGameRuleCategory(Identifier.of(MOD_ID, "enchantments"), Text.translatable("category.gamerule.enchantments").fillStyle(Style.EMPTY.withColor(16579668).withBold(true)));
 
 	public static final GameRules.Key<GameRules.IntRule> MAX_ENCHANTMENT_LEVEL =
-
 	GameRuleRegistry.register("maxEnchantmentLevel", ENCHANTMENTS_CATEGORY, GameRuleFactory.createIntRule(0, 0, 255));
 
     public static final GameRules.Key<GameRules.BooleanRule> NO_INCOMPATIBILITIES =
@@ -28,10 +27,14 @@ public class LimitlessEnchantments implements ModInitializer {
     public static final GameRules.Key<GameRules.BooleanRule> REBALANCED_TRADES =
     GameRuleRegistry.register("rebalancedTrades", ENCHANTMENTS_CATEGORY, GameRuleFactory.createBooleanRule(false));
 
+    public static final GameRules.Key<GameRules.BooleanRule> SHOW_ACTUAL_NUMBERS =
+    GameRuleRegistry.register("showActualNumbers", ENCHANTMENTS_CATEGORY, GameRuleFactory.createBooleanRule(true));
+
 	public static int MAX_ENCHANTMENT_LEVEL_INT = 255;
     public static boolean NO_INCOMPATIBILITIES_BOOLEAN = false;
     public static boolean REBALANCED_TRADES_BOOLEAN = false;
-
+    public static boolean SHOW_ACTUAL_NUMBERS_BOOLEAN = false;
+    
 	@Override
 	public void onInitialize() {
         
