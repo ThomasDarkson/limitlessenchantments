@@ -5,5 +5,7 @@
     "gamerule.noIncompatibilities.description": "Sonsuzluk ve Onarım gibi uyumsuz olan büyülü kitapları birleştirmene izin verir. Servet ve İpeksi Dokunuş ile çalışmaz",
     "gamerule.rebalancedTrades": "Yeniden Dengelenmiş Takaslar",
     "gamerule.rebalancedTrades.description": "Yüksek büyü seviyeleri kütüphaneci köylülerin takaslarını tekrar dengeler. Maksimum büyü seviyesi 10'dan yüksek ise önerilir",
+    "gamerule.showActualNumbers": "Gerçek Seviyeyi Göster",
+    "gamerule.showActualNumbers.description": "Bir büyünün seviyesini Roma rakamlarının yanında normal rakamlar ile gösterir",
     "category.gamerule.enchantments": "Büyüler"
 }
