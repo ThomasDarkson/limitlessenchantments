@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "Apache"
+
+[[mods]]
+modId = "limitlessenchantments"
+version = "${version}"
+displayName = "Limitless Enchantments"
+authors = "Thomas Darkson"
+description = '''
+Remove the enchanted book level limits in survival
+'''
+logoFile = "icon.png"
+
+[[dependencies.limitlessenchantments]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.limitlessenchantments]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.8,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.limitlessenchantments]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "limitlessenchantments.mixins.json"
