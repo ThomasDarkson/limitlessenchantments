@@ -1,0 +1,43 @@
+{
+  "required": true,
+  "package": "limitless.enchantments.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "EnchantmentMixin",
+		"ServerLevelMixin",
+		"EnchantBookForEmeraldsMixin",
+		"AnvilScreenMixin",
+    "AnvilMenuMixin",
+		"EnchantmentHelperMixin",
+		"CreativeModeTabsMixin",
+
+    "ProtectionEnchantmentMixin",      
+    "OxygenEnchantmentMixin",          
+    "ThornsEnchantmentMixin",         
+    "WaterWalkerEnchantmentMixin",    
+    "FrostWalkerEnchantmentMixin",   
+    "SoulSpeedEnchantmentMixin",   
+    "SwiftSneakEnchantmentMixin",      
+    "DamageEnchantmentMixin",         
+    "KnockbackEnchantmentMixin",     
+    "FireAspectEnchantmentMixin", 
+    "LootBonusEnchantmentMixin",      
+    "SweepingEdgeEnchantmentMixin",  
+    "DiggingEnchantmentMixin",       
+    "DigDurabilityEnchantmentMixin", 
+    "ArrowDamageEnchantmentMixin",     
+    "ArrowKnockbackEnchantmentMixin",  
+    "FishingSpeedEnchantmentMixin", 
+    "TridentLoyaltyEnchantmentMixin",
+    "TridentImpalerEnchantmentMixin",
+    "TridentRiptideEnchantmentMixin",
+    "QuickChargeEnchantmentMixin",
+    "ArrowPiercingEnchantmentMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
