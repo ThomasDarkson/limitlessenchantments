@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "limitless.enchantments.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "EnchantmentMixin",
+		"ServerLevelMixin",
+		"EnchantBookForEmeraldsMixin",
+		"AnvilScreenMixin",
+    "AnvilMenuMixin",
+		"ItemEnchantmentsMixin",
+		"ItemEnchantmentsMutableMixin",
+		"CreativeModeTabsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
