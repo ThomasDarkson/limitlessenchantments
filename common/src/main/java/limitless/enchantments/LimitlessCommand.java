@@ -2,6 +2,7 @@ package limitless.enchantments;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.ResourceArgument;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Holder.Reference;
@@ -34,7 +35,7 @@ public class LimitlessCommand {
                 context.getSource().sendSuccess(() -> Component.translatable("limitless.thank.you"), true);
                 return 0;
             })
-            .then(literal("maxEnchantmentLevel").requires(source -> source.hasPermission(2)).
+            .then(literal("maxEnchantmentLevel").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 
@@ -53,7 +54,7 @@ public class LimitlessCommand {
                     context.getSource().sendSuccess(() -> Component.translatable("limitless.warning.setting.change"), false);
                     return 0;
                 })))
-            .then(literal("maxTradeLevel").requires(source -> source.hasPermission(2)).
+            .then(literal("maxTradeLevel").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 
@@ -78,7 +79,7 @@ public class LimitlessCommand {
                     context.getSource().sendSuccess(() -> Component.translatable("limitless.warning.setting.change"), false);
                     return 0;
                 })))
-            .then(literal("anvilExperienceCostLimit").requires(source -> source.hasPermission(2)).
+            .then(literal("anvilExperienceCostLimit").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 
@@ -97,7 +98,7 @@ public class LimitlessCommand {
                     context.getSource().sendSuccess(() -> Component.translatable("limitless.warning.setting.change"), false);
                     return 0;
                 })))
-            .then(literal("fixedAnvilCost").requires(source -> source.hasPermission(2)).
+            .then(literal("fixedAnvilCost").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 
@@ -116,7 +117,7 @@ public class LimitlessCommand {
                     context.getSource().sendSuccess(() -> Component.translatable("limitless.warning.setting.change"), false);
                     return 0;
                 })))
-            .then(literal("noIncompatibilities").requires(source -> source.hasPermission(2)).
+            .then(literal("noIncompatibilities").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 
@@ -142,7 +143,7 @@ public class LimitlessCommand {
                     context.getSource().sendSuccess(() -> Component.translatable("limitless.warning.setting.change"), false);
                     return 0;
                 })))
-            .then(literal("rebalancedTrades").requires(source -> source.hasPermission(2)).
+            .then(literal("rebalancedTrades").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 
@@ -168,7 +169,7 @@ public class LimitlessCommand {
                     context.getSource().sendSuccess(() -> Component.translatable("limitless.warning.setting.change"), false);
                     return 0;
                 })))
-            .then(literal("showActualNumbers").requires(source -> source.hasPermission(2)).
+            .then(literal("showActualNumbers").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 
@@ -194,7 +195,7 @@ public class LimitlessCommand {
                     context.getSource().sendSuccess(() -> Component.translatable("limitless.warning.setting.change"), false);
                     return 0;
                 })))
-            .then(literal("blacklist").requires(source -> source.hasPermission(2)).
+            .then(literal("blacklist").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).
                 executes(context -> {
                     checkForUpdates(context);
 

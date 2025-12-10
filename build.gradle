@@ -46,7 +46,6 @@ subprojects {
         minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
         mappings loom.layered() {
             officialMojangMappings()
-            parchment("org.parchmentmc.data:parchment-1.21.10:2025.10.12@zip")
         }
 
         implementation 'io.github.thomasdarkson:semantic-ver-lib:1.0.0-beta.1'
