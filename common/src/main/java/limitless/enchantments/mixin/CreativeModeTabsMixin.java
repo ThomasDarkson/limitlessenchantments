@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 @Mixin(CreativeModeTabs.class)
 public class CreativeModeTabsMixin {
     @Overwrite
-    private static void generateEnchantmentBookTypesOnlyMaxLevel(CreativeModeTab.Output entries, HolderLookup<Enchantment> registryWrapper, CreativeModeTab.TabVisibility stackVisibility) {
+    public static void generateEnchantmentBookTypesOnlyMaxLevel(CreativeModeTab.Output entries, HolderLookup<Enchantment> registryWrapper, CreativeModeTab.TabVisibility stackVisibility) {
         registryWrapper.listElements().map((enchantmentEntry) -> {
             return EnchantmentHelper.createBook(new EnchantmentInstance(enchantmentEntry, Math.min(255, ((Enchantment)enchantmentEntry.value()).getMaxLevel())));
         }).forEach((stack) -> {
@@ -22,7 +22,7 @@ public class CreativeModeTabsMixin {
     }
 
     @Overwrite
-    private static void generateEnchantmentBookTypesAllLevels(CreativeModeTab.Output entries, HolderLookup<Enchantment> registryWrapper, CreativeModeTab.TabVisibility stackVisibility) {
+    public static void generateEnchantmentBookTypesAllLevels(CreativeModeTab.Output entries, HolderLookup<Enchantment> registryWrapper, CreativeModeTab.TabVisibility stackVisibility) {
         registryWrapper.listElements().flatMap((enchantmentEntry) -> {
             return IntStream.rangeClosed(((Enchantment)enchantmentEntry.value()).getMinLevel(), Math.min(255, ((Enchantment)enchantmentEntry.value()).getMaxLevel())).mapToObj((level) -> {
                 return EnchantmentHelper.createBook(new EnchantmentInstance(enchantmentEntry, level));
